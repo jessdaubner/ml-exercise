@@ -11,13 +11,13 @@ package, part of the Python standard library, provides a function to calculate t
 ### Unit Tests
 Inside the container, run the tests at the command-line with `pytest`. As expected, the two incorrect examples provided should fail for `inner_median` while the tests on the refactored function pass:
 ```
-root@19531ceb560e:/ml-exercise# pytest
+root@19746f5a04d8:/python_debugging# pytest
 ================================================================================== test session starts ==================================================================================
 platform linux -- Python 3.7.3, pytest-4.4.1, py-1.8.0, pluggy-0.9.0
-rootdir: /ml-exercise
+rootdir: /python_debugging
 collected 11 items
 
-python_debugging/test_python_debugging.py FF.........                                                                                                                             [100%]
+test_python_debugging.py FF.........                                                                                                                                              [100%]
 
 ======================================================================================= FAILURES ========================================================================================
 _________________________________________________________________________ test_inner_median_incorrect_example1 __________________________________________________________________________
@@ -27,7 +27,7 @@ _________________________________________________________________________ test_i
 E       assert 1.0 == 2.0
 E        +  where 1.0 = inner_median([3, 1, 2], [1, 2, 3, 4])
 
-python_debugging/test_python_debugging.py:6: AssertionError
+test_python_debugging.py:6: AssertionError
 _________________________________________________________________________ test_inner_median_incorrect_example2 __________________________________________________________________________
 
     def test_inner_median_incorrect_example2():
@@ -35,13 +35,13 @@ _________________________________________________________________________ test_i
 E       assert 2.5 == 2.0
 E        +  where 2.5 = inner_median([1, 1, 3, 2, 1, 3], [1, 2, 3, 4])
 
-python_debugging/test_python_debugging.py:10: AssertionError
+test_python_debugging.py:10: AssertionError
+========================================================================== 2 failed, 9 passed in 0.10 seconds ===========================================================================
 ```
 ### IPython
 The code can also be run interactively within the running container as follows:
 ```
-root@a78904fe6a82:/ml-exercise# cd python_debugging/
-root@a78904fe6a82:/ml-exercise/python_debugging# ipython
+root@19746f5a04d8:/python_debugging# ipython
 Python 3.7.3 (default, Mar 27 2019, 23:40:30)
 Type 'copyright', 'credits' or 'license' for more information
 IPython 7.5.0 -- An enhanced Interactive Python. Type '?' for help.
