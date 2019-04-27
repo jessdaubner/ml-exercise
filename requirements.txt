@@ -1,1 +1,2 @@
 pytest==4.4.1
+ipython==7.5.0
