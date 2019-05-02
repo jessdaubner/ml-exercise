@@ -3,11 +3,17 @@ Debugging a function to correctly calculate the median of the intersection of tw
 
 ## Solution Efficiency
 A more efficient way to find the intersection of two lists is to convert the lists to sets and
-use the `intersection` set method. This depulicates the two lists while providing a more efficient
+use the `intersection` set method. This removes depulicates from the two lists while providing a more efficient
 solution than iterating through each list and comparing the elements, which has algorithm efficiency O(N<sup>2</sup>). Additionally, the `statistics`
 package, part of the Python standard library, provides a function to calculate the [median](https://github.com/python/cpython/blob/master/Lib/statistics.py#L400-#L421), which uses similar logic and correctly sorts the iterable provided before finding the middle of the data.
 
 ## Running the Code
+### Build & Run the Container
+```bash
+cd ml-exercise/python_debugging
+docker build -t python_debugging .
+docker run --rm -ti python_debugging
+```
 ### Unit Tests
 Inside the container, run the tests at the command-line with `pytest`. As expected, the two incorrect examples provided should fail for `inner_median` while the tests on the refactored function pass:
 ```
