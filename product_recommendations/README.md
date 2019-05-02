@@ -4,6 +4,7 @@ Builds a collaborative filtering model using Spark ML's ALS-WR implementation to
 ## Setup & Running Recommender
 Build and run app with Docker:
 ```
+cd ml-exercise
 docker build -t recommender product_recommendations/
 docker run --rm -ti recommender
 ```
