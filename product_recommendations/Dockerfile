@@ -34,5 +34,4 @@ RUN apt-get update && \
 COPY . recommender
 RUN pip install --trusted-host pypi.python.org -r recommender/requirements.txt
 ENV APP_DIR='recommender'
-RUN spark-submit --master local[12] recommender/recommender.py --cross-validate --customer_id 14687389
-#CMD spark-submit --master local[12] recommender/recommender.py --customer_id 14687389
+CMD spark-submit --master local[12] recommender/recommender.py --customer_id 14687389
