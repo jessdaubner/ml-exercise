@@ -8,6 +8,7 @@ cd ml-exercise
 docker build -t recommender product_recommendations/
 docker run --rm -ti recommender
 ```
+NOTE: This uses --master local[12]. Change the number of threads used to run the program to fit your local configuration.
 
 ## Methodology
 The code in `recommender.py` develops a collaborative filtering model using Spark ML's ALS estimator to recommend the 10 most relevant products to each user. The raw data is preprocessed so that transactions without `global_product_id` or `customer_id` are discarded and transaction data is grouped by `global_product_id` for each customer and counted. The total purchase counts are then used as a measure of the customer's preference or rating for a given product. An 80%/20% train-test split is used and an ALS model is then selected using k-folds cross-validation (k=5).
@@ -61,3 +62,13 @@ If the existing architecture already includes streaming data via Kinesis or Kafk
 * Experiment with scaling product purchases or mapping them to another scale and removing the most popular items during preprocessing (since a user is likely to select these by default)
 * Exploring other ALS implementations, such as TensorFlow's WALS implementation, and other models like factorization machines that can incorporate user and product information would likely lead to better performance
 * Develop a hybrid recommender that incorporates predictions from content-based and collaborative filtering models; such a system would be more robust overall and could also handle new users better, especially if users answered initial survey questions about about stores, brands, or products they liked
+
+### Resources
+* [StandardScaler](https://spark.apache.org/docs/2.1.0/ml-features.html#standardscaler)
+* [ALS](https://spark.apache.org/docs/2.2.0/api/python/pyspark.ml.html#pyspark.ml.recommendation.ALS)
+* [ML Pipelines](https://spark.apache.org/docs/latest/ml-pipeline.html)
+* [CrossValidator](https://spark.apache.org/docs/latest/api/python/pyspark.ml.html#pyspark.ml.tuning.CrossValidator)
+* [ML Features](https://spark.apache.org/docs/latest/ml-features.html#extracting-transforming-and-selecting-features)
+* [Collaborative Filtering](https://spark.apache.org/docs/latest/ml-collaborative-filtering.html)
+* [Evaluation Metrics - Ranking](https://spark.apache.org/docs/2.2.0/mllib-evaluation-metrics.html#ranking-systems)
+* [Spark Streaming - MLlib Operations](https://spark.apache.org/docs/latest/streaming-programming-guide.html#mllib-operations)

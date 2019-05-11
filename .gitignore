@@ -1,15 +1,15 @@
 # Byte-compiled / optimized / DLL files
-__pycache__/
+*__pycache__/
 *.py[cod]
 
 # IPython Notebook
-.ipynb_checkpoints
+*.ipynb_checkpoints
 
 # Vim
 *.swp
 
 # Pytest
-.pytest*
+*.pytest*
 
 # Data files
 *.csv
